@@ -37,4 +37,5 @@ def bAngle(phi):
 
 def hamming_distance(a, b): 
   r = (1 << nq.array(8)[:, None])
-  return nq.count_nonzero(nq.bitwise_xor(a, b) & r) != 0)
+  return nq.count_nonzero(nq.bitwise_xor(a, b) & r != 0)
+  
