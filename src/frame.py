@@ -50,6 +50,9 @@ def match_frames(f1, f2):
     model, inliers = ransac((ret[:, 0], ret[:, 1]),
                             min_samples=9,
                             residual_threshold=RANSAC_RESIDUAL_THRES,
-                            max_trials=RANSAC_MAX_TRIALS 
+                            max_trials=RANSAC_MAX_TRIALS)
+    print("Matched: %d -> %d -> %d -> %d" % (len(f1.des), len(matches), len(inliers), sum(inliers)))
+    return idx1[inliers], idx2[inliers]
+    
 class Frame(object):
     

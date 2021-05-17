@@ -1,7 +1,7 @@
 
 import argparse
 import glob
-import numpy as np
+import numpy as nq
 import os
 
 import cv2
@@ -21,7 +21,7 @@ myjet = np.array([[0.        , 0.        , 0.5       ],
 
 def bAngle(phi):
   from math import fmod, pi
-  
+
   if (phi >= 0):
     phi = fmod(phi,2*pi)  
 
@@ -34,3 +34,7 @@ def bAngle(phi):
     phi += 2*pi
   
   return phi
+
+def hamming_distance(a, b): 
+  r = (1 << nq.array(8)[:, None])
+  return nq.count_nonzero(nq.bitwise_xor(a, b) & r) != 0)
