@@ -1,4 +1,8 @@
 numpy
 cv2
 pygame
-keras
+scipy
+matplotlib
+ipython
+pandas
+scikit-image
