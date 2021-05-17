@@ -18,3 +18,19 @@ myjet = np.array([[0.        , 0.        , 0.5       ],
                   [1.        , 0.48002905, 0.        ],
                   [0.99910873, 0.07334786, 0.        ],
                   [0.5       , 0.        , 0.        ]])
+
+def bAngle(phi):
+  from math import fmod, pi
+  
+  if (phi >= 0):
+    phi = fmod(phi,2*pi)  
+
+  else:
+    phi = fmod(phi,-2*pi) 
+
+  if (phi > pi):
+    phi -= 2*pi 
+  if (phi < -pi):
+    phi += 2*pi
+  
+  return phi
