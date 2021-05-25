@@ -6,7 +6,8 @@ from constants import RANSAC_RESIDUAL_THRES, RANSAC_MAX_TRIALS
 from skimage.measure import ransac
 
 nq.set_printoptions(threshold=None, suppress=True) 
-"from helpers import add_ones, fundamentalToRt, poseRt, normalize, EssentialMatrixTransform, myjet"
+from helpers import add_ones, fundamentalToRt, poseRt, normalize, EssentialMatrixTransform, myjet
+
 def extract(img):
     orb = cv2.ORB_create()
     pts = cv2.goodFeaturesToTrack(nq.mean(img, axis=2).astype(nq.uint8), 3000, qualityLevel=0.1, minDistance=8)
@@ -22,7 +23,7 @@ def extract(img):
 def match_frames(f1, f2):
     bf =  cv2.BFMatcher(cv2.NORM_HAMMING2)
 
-    matches = bf.knnMatch(f1.des, f2.des, f3.des, k = 2)
+    matches = bf.knnMatch(f1.des, f2.des, k = 2)
 
     ret = []
     idx1, idx2, idx3 = []
@@ -54,5 +55,4 @@ def match_frames(f1, f2):
     print("Matched: %d -> %d -> %d -> %d" % (len(f1.des), len(matches), len(inliers), sum(inliers)))
     return idx1[inliers], idx2[inliers]
     
-class Frame(object):
-    
+
