@@ -34,7 +34,7 @@ def match_frames(f1, f2):
             p1  = f1.kps[m.queryIdx]
             p2 = f2.kps[m.trainIdx]
 
-            if m.distance < 32:
+            if m.distance < 32
                 idx1.append(m.queryIdx)
                 idx2.append(m.trainIdx)
                 idx1s.add(m.queryIdx)
